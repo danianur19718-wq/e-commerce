@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PinkCart - For U Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="floating-decor">
+        <span class="float-heart" style="left:5%;animation-delay:0s;">&#9829;</span>
+        <span class="float-heart" style="left:15%;animation-delay:2s;">&#9829;</span>
+        <span class="float-star" style="left:25%;animation-delay:1s;">&#9733;</span>
+        <span class="float-heart" style="left:40%;animation-delay:3s;">&#9829;</span>
+        <span class="float-star" style="left:55%;animation-delay:0.5s;">&#9733;</span>
+        <span class="float-heart" style="left:70%;animation-delay:1.5s;">&#9829;</span>
+        <span class="float-star" style="left:82%;animation-delay:2.5s;">&#9733;</span>
+        <span class="float-heart" style="left:92%;animation-delay:4s;">&#9829;</span>
+    </div>
+
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="#" class="logo" onclick="scrollToTop(event)">
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>PinkCart</span>
+            </a>
+            <nav class="nav">
+                <a href="#products" class="nav-link" onclick="smoothNav(event,'products')">Produk</a>
+                <a href="#products" class="nav-link" onclick="smoothNav(event,'filterSection')">Kategori</a>
+                <a href="#" class="nav-link" onclick="smoothNav(event,'about')">Tentang</a>
+            </nav>
+            <div class="header-actions">
+                <button class="btn-icon cart-btn" id="cartBtn" aria-label="Keranjang belanja">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <button class="btn-mobile" id="mobileMenuBtn" aria-label="Menu">
+                    <i class="fa-solid fa-bars" id="mobileMenuIcon"></i>
+                </button>
+            </div>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="#products" class="mobile-nav-link" onclick="closeMobileAndGo(event,'products')">
+                <i class="fa-solid fa-store"></i> Produk
+            </a>
+            <a href="#products" class="mobile-nav-link" onclick="closeMobileAndGo(event,'filterSection')">
+                <i class="fa-solid fa-tags"></i> Kategori
+            </a>
+            <a href="#" class="mobile-nav-link" onclick="closeMobileAndGo(event,'about')">
+                <i class="fa-solid fa-circle-info"></i> Tentang
+            </a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-bg-shapes">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <div class="hero-content">
+            <p class="hero-subtitle">Selamat datang di</p>
+            <h1 class="hero-title">PinkCart</h1>
+            <p class="hero-desc">Temukan barang-barang lucu & usefull yang bikin harimu lebih happy. Khusus untuk kamu, perempuan-perempuanku yang menggemaskann!</p>
+            <a href="#products" class="btn-primary btn-bounce" onclick="smoothNav(event,'products')">
+                <i class="fa-solid fa-wand-magic-sparkles"></i> Mulai Belanja
+            </a>
+        </div>
+        <div class="hero-illustration">
+            <div class="hero-circle"><i class="fa-solid fa-gift"></i></div>
+            <div class="hero-float-item hf-1"><i class="fa-solid fa-heart"></i></div>
+            <div class="hero-float-item hf-2"><i class="fa-solid fa-star"></i></div>
+            <div class="hero-float-item hf-3"><i class="fa-solid fa-bag-shopping"></i></div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                <h3>Gratis Ongkir</h3>
+                <p>Belanja di atas Rp500rb bebas ongkir</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-shield-heart"></i></div>
+                <h3>Garansi Aman</h3>
+                <p>Barang tidak sesuai? Langsung ganti baru</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-face-smile-beam"></i></div>
+                <h3>Banyak Diskon</h3>
+                <p>Promo menarik setiap minggu untukmu</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+                <h3>Ramah</h3>
+                <p>Siap bantu kamu kapanpun, fast response</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <div class="section-header">
+            <h2 class="section-title">Produk Pilihan</h2>
+            <p class="section-desc">Barang-barang kece yang wajib kamu punya!</p>
+        </div>
+        <div class="filter-bar" id="filterSection">
+            <button class="filter-btn active" data-filter="semua">Semua</button>
+            <button class="filter-btn" data-filter="tas">Tas</button>
+            <button class="filter-btn" data-filter="perawatan">Perawatan</button>
+            <button class="filter-btn" data-filter="dekorasi">Dekorasi</button>
+            <button class="filter-btn" data-filter="aksesoris">Aksesoris</button>
+        </div>
+        <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="about-inner">
+            <div class="about-img-wrap">
+                <img src="https://media.istockphoto.com/id/2171674959/id/foto/konsumen-atau-pelanggan-memberikan-peringkat-bintang-lima-untuk-kepuasan-tertinggi.webp?a=1&b=1&s=612x612&w=0&k=20&c=xI2H0HHtq76XK8-0tk-HznxL7ynsb2MrPb_meKeuqqU=" alt="Tentang PinkCart" loading="lazy">
+            </div>
+            <div class="about-text">
+                <h2 class="section-title" style="text-align:left;">Tentang PinkCart</h2>
+                <p>PinkCart lahir dari kecintaan kami terhadap produk-produk cantik yang tidak hanya lucu dipandang, tapi juga benar-benar berguna dalam kehidupan sehari-hari.</p>
+                <p>Kami percaya setiap perempuan berhak memiliki barang-barang berkualitas. Semua produk di PinkCart sudah kurasi ketat, dijamin original, dan dikemas dengan penuh cinta.</p>
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <span class="about-stat-num">5000+</span>
+                        <span class="about-stat-label">Customer Happy</span>
+                    </div>
+                    <div class="about-stat">
+                        <span class="about-stat-num">200+</span>
+                        <span class="about-stat-label">Produk Pilihan</span>
+                    </div>
+                    <div class="about-stat">
+                        <span class="about-stat-num">4.9</span>
+                        <span class="about-stat-label">Rating Toko</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="logo"><i class="fa-solid fa-bag-shopping"></i><span>PinkCart</span></div>
+                <p>Tempat belanja barang lucu dan usefull for u. Kualitas terjamin, harga bersahabat!</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigasi</h4>
+                <a href="#" onclick="scrollToTop(event)">Beranda</a>
+                <a href="#products" onclick="smoothNav(event,'products')">Produk</a>
+                <a href="#about" onclick="smoothNav(event,'about')">Tentang Kami</a>
+                <a href="#" onclick="showContactToast(event)">Kontak</a>
+            </div>
+            <div class="footer-links">
+                <h4>Bantuan</h4>
+                <a href="#" onclick="showHelpToast(event,'cara-belanja')">Cara Belanja</a>
+                <a href="#" onclick="showHelpToast(event,'pengiriman')">Pengiriman</a>
+                <a href="#" onclick="showHelpToast(event,'pengembalian')">Pengembalian</a>
+                <a href="#" onclick="showHelpToast(event,'faq')">FAQ</a>
+            </div>
+            <div class="footer-social">
+                <h4>Ikuti Kami</h4>
+                <div class="social-icons">
+                    <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://wa.me/6281234567890" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="https://shopee.co.id" target="_blank" rel="noopener" aria-label="Shopee"><i class="fa-solid fa-store"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>PinkCart. Dibuat dengan <span class="heart">&hearts;</span> for u.</p>
+        </div>
+    </footer>
+
+    <div class="modal-overlay" id="detailModal">
+        <div class="modal-content modal-detail" id="detailContent"></div>
+    </div>
+
+    <div class="drawer-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h3><i class="fa-solid fa-cart-shopping"></i> Keranjangku</h3>
+            <button class="btn-icon" id="closeCartBtn" aria-label="Tutup keranjang"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-drawer-body" id="cartBody"></div>
+        <div class="cart-drawer-footer" id="cartFooter"></div>
+    </aside>
+
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal-content modal-checkout">
+            <div class="checkout-header">
+                <h3><i class="fa-solid fa-bag-shopping"></i> Checkout</h3>
+                <button class="btn-icon" id="closeCheckoutBtn" aria-label="Tutup checkout"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="checkout-steps" id="checkoutSteps">
+                <div class="step active" data-step="1"><span>1</span><p>Ringkasan</p></div>
+                <div class="step-line"></div>
+                <div class="step" data-step="2"><span>2</span><p>Pengiriman</p></div>
+                <div class="step-line"></div>
+                <div class="step" data-step="3"><span>3</span><p>Pembayaran</p></div>
+                <div class="step-line"></div>
+                <div class="step" data-step="4"><span>4</span><p>Konfirmasi</p></div>
+            </div>
+            <div class="checkout-body" id="checkoutBody"></div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content modal-success">
+            <div class="success-confetti" id="confettiContainer"></div>
+            <div class="success-icon">
+                <div class="success-check"><i class="fa-solid fa-check"></i></div>
+            </div>
+            <h2>Pesanan Berhasil!</h2>
+            <p class="success-msg">Terima kasih sudah belanja, cantik! Pesananmu sedang diproses.</p>
+            <div class="success-info" id="successInfo"></div>
+            <button class="btn-primary" id="successCloseBtn">Kembali Belanja</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="helpModal">
+        <div class="modal-content modal-help">
+            <div class="help-header">
+                <h3 id="helpModalTitle"><i class="fa-solid fa-circle-question"></i> Bantuan</h3>
+                <button class="btn-icon" onclick="closeHelpModal()" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="help-body" id="helpModalBody"></div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <button class="scroll-top" id="scrollTopBtn" aria-label="Scroll ke atas">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
